@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 col-sm-12 mx-auto mb-4">      
+      <form [formGroup]="updateForm" (ngSubmit)="update()" class="card p-3 bg-light" autocomplete="off">
+        <h3 class="mb-3">Update an expense</h3>
+        <hr>
+        <div class="form-group">
+          <input required type="hidden" formControlName="userId" class="form-control">
+          <input required type="hidden" formControlName="id" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input required type="text" class="form-control" id="title" required autocomplete="off" formControlName="name"
+            [ngClass]="{'is-invalid': updateForm.get('name').errors && updateForm.get('name').touched}">
+          <div class="invalid-feedback"
+            *ngIf="updateForm.get('name').touched && updateForm.get('name').hasError('required')">
+            Please choose a title!
+          </div>
+          <div class="invalid-feedback"
+            *ngIf="updateForm.get('name').hasError('maxlength') && updateForm.get('name').touched">
+            Title cannot exceed 24 characters.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="value">Value</label>
+          <input required type="number" class="form-control" id="value" required autocomplete="off" formControlName="value"
+            id="value" [ngClass]="{'is-invalid': updateForm.get('value').errors && updateForm.get('value').touched}">
+          <div class="invalid-feedback"
+            *ngIf="updateForm.get('value').touched && updateForm.get('value').hasError('required')">
+            Please choose a value!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="due-date">Due Date</label>
+          <input required type="date" class="form-control" id="due-date" required autocomplete="off" formControlName="dueDate"
+            id="due-date"
+            [ngClass]="{'is-invalid': updateForm.get('dueDate').errors && updateForm.get('dueDate').touched}">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" cols="30" rows="5" class="form-control" required autocomplete="off"
+            id="description" formControlName="description" [ngClass]=" {'is-invalid': updateForm.get('description').errors &&
+              updateForm.get('description').touched}"></textarea>
+          <div class="invalid-feedback"
+            *ngIf="updateForm.get('description').touched && updateForm.get('description').hasError('required')">
+            Please choose a description!
+          </div>
+          <div class="invalid-feedback"
+            *ngIf="updateForm.get('description').hasError('maxlength') && updateForm.get('description').touched">
+            Description cannot exceed 200 characters.
+          </div>
+        </div>
+        <div class="form-group mx-auto">
+          <button class="btn btn-sm btn-success btn-war my-1 mx-1" [disabled]="!updateForm.valid">Submit</button>
+          <button class="btn btn-sm btn-success btn-war my-1 mx-1" (click)="navigate()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

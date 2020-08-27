@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+  <img src="../../assets/barchart.png" class="mx-1" alt="...">
+  <a class="navbar-brand" [routerLink]="['']">
+    NgExpenses
+  </a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" *ngIf="loggedIn()" routerLinkActive="router-link-active">
+      <a class="nav-link" [routerLink]="['expenses']">List Expenses</a>
+    </li>
+    <li class="nav-item" *ngIf="loggedIn()">
+      <a class="nav-link" href="#" (click)="logout()">Log out</a>
+    </li>
+  </ul>
+  <div class="dropdown mr-4" *ngIf="loggedIn()">
+    <span class="text-light">
+      Welcome {{ userService.decodedToken?.unique_name | titlecase }}
+    </span>
+  </div>
+  <form #loginForm="ngForm" autocomplete="off" class="form-inline my-2 my-lg-0  my-1" (ngSubmit)="login()"
+    *ngIf="!loggedIn()">
+    <input class="form-control mr-sm-2" autocomplete="off" type="text" placeholder="username" required name="username"
+      [(ngModel)]="model.username">
+    <input class="form-control mr-sm-2 my-1" autocomplete="off" type="password" placeholder="password" required
+      name="password" [(ngModel)]="model.password">
+    <button class="btn btn-success btn-war my-1 mx-1" type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</nav>

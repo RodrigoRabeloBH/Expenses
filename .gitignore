@@ -1,0 +1,8 @@
+bin
+obj
+.vscode
+wwwroot
+user.json
+Api/appsettings.json
+Api/appsettings.Development.json
+

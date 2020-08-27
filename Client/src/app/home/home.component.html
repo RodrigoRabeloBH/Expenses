@@ -1,0 +1,15 @@
+<div class="show-case p-5">
+  <div class="container p-5">
+    <div class="text" *ngIf="!loggedIn()">
+      <h1 class="text-light">Tracking Your Expenses Can Reveal Spending Issues.</h1>
+      <p class=" lead text-light">Automated, fast and accurate expense management. </p>
+      <div class="text-center">
+        <a [routerLink]="['/register']" class="btn btn-success btn-war my-1 mx-1">Sign In</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-logged" *ngIf="loggedIn()">
+    </div>
+  </div>
+</div>

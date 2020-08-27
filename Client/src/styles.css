@@ -1,0 +1,31 @@
+@import'../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import'../node_modules/alertifyjs/build/css/alertify.min.css';
+@import'../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+body {
+  background-color: #616161;
+}
+
+.btn-in {
+  background-color: #90a4ae !important;
+  color: #fff;
+}
+
+.btn-war {
+  background-color: #000000 !important;
+  color: #fff;
+}
+
+.navbar-brand {
+  color: #cecece !important;
+}
+
+.navbar-brand:hover {
+  color: #fff !important;
+}
+
+@media(max-width: 600px) {
+  .description {
+    display: none;
+  }
+}
